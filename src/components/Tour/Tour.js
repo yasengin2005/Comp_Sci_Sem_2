@@ -1,18 +1,14 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import "./Tour.scss";
 
-export default class Tour extends Component {
-  state = {
-    showInfo: false,
+const Tour  = (props) => {
+  const [showInfo, setShowInfo] = useState(false)
+
+  const handleInfo = () => {
+    setShowInfo(!showInfo);
   };
-  handleInfo = () => {
-    this.setState({
-      showInfo: !this.state.showInfo,
-    });
-  };
-  render() {
-    const { id, img, city, name, info } = this.props.tour;
-    const { removeTour } = this.props;
+
+    const { id, img, city, name, info } = props.tour;
 
     return (
       <article className="tour">
@@ -21,7 +17,7 @@ export default class Tour extends Component {
           <span
             className="close-btn"
             onClick={() => {
-              removeTour(id);
+              props.removeTour(id);
             }}
           >
             <i className="fas fa-window-close"></i>
@@ -32,13 +28,15 @@ export default class Tour extends Component {
           <h4>{name}</h4>
           <h5>
             info{" "}
-            <span onClick={this.handleInfo}>
+            <span onClick={handleInfo}>
               <i className="fas fa-caret-square-down" />
             </span>
           </h5>
-          {this.state.showInfo && <p>{info}</p>}
+          {showInfo && <p>{info}</p>}
         </div>
       </article>
     );
   }
-}
+
+
+export default Tour;

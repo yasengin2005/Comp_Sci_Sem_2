@@ -12,7 +12,7 @@ const TourList = () => {
   };
 
   return (
-    <section className="tour-list">
+    <section className="tourlist">
       {tours.map((tour) => {
         return <Tour key={tour.id} tour={tour} removeTour={removeTour} />;
       })}
@@ -21,3 +21,4 @@ const TourList = () => {
 };
 
 export default TourList;
+

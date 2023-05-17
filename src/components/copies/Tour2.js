@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./Tour.scss";
 
-export default function Tour(props) {
+const Tour = (props) => {
   const [showInfo, setShowInfo] = useState(false);
 
-  const { id, img, city, name, info } = props.tour;
+  const { img, id, city, name, info } = props.tour;
 
   const toggleInfo = () => {
     setShowInfo(!showInfo);
@@ -13,9 +13,9 @@ export default function Tour(props) {
   return (
     <article className="tour">
       <div className="img-container">
-        <img src={img} alt="city images" />
+        <img src={img} alt="cities" />
         <span
-        className="close-btn"
+          className="close-btn"
           onClick={() => {
             props.removeTour(id);
           }}
@@ -31,9 +31,11 @@ export default function Tour(props) {
           <span onClick={toggleInfo}>
             <i className="fas fa-caret-square-down" />
           </span>
-        {showInfo && <p>{info}</p>}
+          {showInfo && <p>{info}</p>}
         </h5>
       </div>
     </article>
   );
-}
+};
+
+export default Tour;

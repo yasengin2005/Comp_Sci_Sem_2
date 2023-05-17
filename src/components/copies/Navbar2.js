@@ -1,10 +1,10 @@
-import logo from "../../logo.png";
-import "./Navbar.scss";
+import logo from '../../logo.png'
+import "./Navbar.scss"
 
-const Navbar = () => {
+export default function Navbar() {
   return (
     <nav className="navbar">
-      <img src={logo} alt="city tours logo" />
+      <img src={logo} className="imgs" alt="city tours logo" />
       <ul className="nav-links">
         <li>
           <a href="/" className="nav-link">
@@ -24,6 +24,5 @@ const Navbar = () => {
       </ul>
     </nav>
   );
-};
+}
 
-export default Navbar;
